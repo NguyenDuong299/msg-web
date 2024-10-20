@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "antd": "^5.20.6",
+    "cookie": "^1.0.1",
     "dotenv": "^16.4.5",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",

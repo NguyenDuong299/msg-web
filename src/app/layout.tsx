@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import AppProvider from "./AppProvider";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,9 +14,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = cookies()
+  const sessionToken = cookieStore.get('sessionToken')
+  console.log('cookieStore', sessionToken)
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AppProvider initialSessionToken={sessionToken}>{children}</AppProvider>
+      </body>
     </html>
   );
 }
