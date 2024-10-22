@@ -14,13 +14,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = cookies()
-  const sessionToken = cookieStore.get('sessionToken')
-  console.log('cookieStore', sessionToken)
+  const cookieStore = cookies();
+  const sessionToken = cookieStore.get("sessionToken");
+  console.log("cookieStore", sessionToken);
   return (
     <html lang="en">
       <body>
-        <AppProvider initialSessionToken={sessionToken}>{children}</AppProvider>
+        <AppProvider initialSessionToken={sessionToken?.value}>
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

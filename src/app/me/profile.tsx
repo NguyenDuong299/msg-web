@@ -1,8 +1,10 @@
 "use client";
-import { useAppContext } from "@/app/AppProvider";
-import React, { useEffect } from "react";
 
-const UserManagement = () => {
+import { cookies } from "next/headers";
+import { useEffect } from "react";
+import { useAppContext } from "../AppProvider";
+
+export default async function Profile() {
   const { sessionToken } = useAppContext();
   useEffect(() => {
     const fetchRequest = async () => {
@@ -26,8 +28,5 @@ const UserManagement = () => {
     };
     fetchRequest();
   }, [sessionToken]);
-  return <div>UserManagement</div>;
-};
-
-export default UserManagement;
-UserManagement.displayName = "UserManagement";
+  return <div>Profile</div>;
+}
