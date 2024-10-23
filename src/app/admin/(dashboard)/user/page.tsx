@@ -6,7 +6,8 @@ const UserManagement = () => {
   const { sessionToken } = useAppContext();
   useEffect(() => {
     const fetchRequest = async () => {
-      const resultProfile = await fetch("http://127.0.0.1:8000/api/ShowUser", {
+      const resultProfile = await fetch("http://127.0.0.1:8000/api/user/ShowUser", {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionToken}`,
@@ -26,7 +27,7 @@ const UserManagement = () => {
     };
     fetchRequest();
   }, [sessionToken]);
-  return <div>UserManagement</div>;
+  return <div></div>;
 };
 
 export default UserManagement;

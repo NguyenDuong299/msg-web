@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import '../public/style/sb-admin-2.min.css';
 import AppProvider from "./AppProvider";
 import { cookies } from "next/headers";
+import Layout from "./admin/_components/layout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <AppProvider initialSessionToken={sessionToken?.value}>
-          {children}
+          <Layout>{children}</Layout>
         </AppProvider>
       </body>
     </html>
